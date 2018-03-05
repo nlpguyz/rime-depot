@@ -5,8 +5,8 @@
     "zh_CN": "国际音标 X-Sampa",
     "zh_TW": "國際音標 X-Sampa",
     "default": "IPA X-Sampa"
-  }
-  "version": "1.0",
+  },
+  "version" : "1.0",
   "files" : [
     "ipa_xsampa.schema.yaml",
     "ipa_xsampa.dict.yaml"
