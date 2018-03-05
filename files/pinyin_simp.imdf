@@ -1,0 +1,14 @@
+{
+  "id": "ipa_xsampa",
+  "name": {
+    "en": "Mini pinyin (Simp)",
+    "zh_CN": "袖珍简化字拼音",
+    "zh_TW": "袖珍簡化字拼音",
+    "default": "Mini pinyin (Simp)"
+  },
+  "version" : "1.0",
+  "files" : [
+    "pinyin_simp.schema.yaml",
+    "pinyin_simp.dict.yaml"
+  ]
+}
