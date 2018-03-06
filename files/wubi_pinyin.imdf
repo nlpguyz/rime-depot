@@ -4,9 +4,9 @@
     "en": "Wubi/Pinyin",
     "zh_CN": "五笔·拼音",
     "zh_TW": "五筆·拼音",
-    "default": "Mini pinyin (Simp)"
+    "default": "Wubi/Pinyin"
   },
-  "version" : "1.0",
+  "version" : "0.9",
   "files" : [
     "wubi_pinyin.schema.yaml",
     "wubi86.dict.yaml",
