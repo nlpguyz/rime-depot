@@ -1,0 +1,16 @@
+{
+  "id": "wubi_pinyin",
+  "name": {
+    "en": "Wubi/Pinyin",
+    "zh_CN": "五笔·拼音",
+    "zh_TW": "五筆·拼音",
+    "default": "Mini pinyin (Simp)"
+  },
+  "version" : "1.0",
+  "files" : [
+    "wubi_pinyin.schema.yaml",
+    "wubi86.dict.yaml",
+    "pinyin_simp.schema.yaml",
+    "pinyin_simp.dict.yaml"
+  ]
+}
