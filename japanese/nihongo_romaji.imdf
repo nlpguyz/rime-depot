@@ -1,0 +1,16 @@
+{
+  "id": "nihongo_romaji",
+  "name": {
+    "en": "Japanese Romaji",
+    "zh_CN": "日语·罗马字",
+    "zh_TW": "日語·羅馬字",
+    "jp": "日本語ローマ字",
+    "default": "日本語ローマ字"
+  },
+  "version" : "1.0",
+  "author": "m13253",
+  "files" : [
+    "nihongo_romaji.schema.yaml",
+    "nihongo_romaji.dict.yaml"
+  ]
+}
