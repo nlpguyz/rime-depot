@@ -1,0 +1,16 @@
+{
+  "id": "jap_poly",
+  "name": {
+    "en": "Japanese Kana",
+    "zh_CN": "日语·假名",
+    "zh_TW": "日語·假名",
+    "jp": "日本語·仮名",
+    "default": "日本語·仮名"
+  },
+  "version" : "2013.10.08",
+  "author": "polyhedron <polyhedron@gmail.com>",
+  "files" : [
+    "jap_poly.schema.yaml",
+    "jap_poly.dict.yaml"
+  ]
+}
