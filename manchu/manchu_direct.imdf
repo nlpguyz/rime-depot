@@ -1,0 +1,13 @@
+{
+  "id": "manchu_direct",
+  "name": {
+    "en": "Korean Roma",
+    "zh_CN": "满文快打",
+    "zh_TW": "滿文快打",
+    "default": "满文快打"
+  },
+  "version" : "1.0",
+  "files" : [
+    "manchu_direct.schema.yaml"
+  ]
+}
