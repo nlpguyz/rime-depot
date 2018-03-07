@@ -1,0 +1,17 @@
+{
+  "id": "korean_rome2",
+  "name": {
+    "en": "Korean Roma",
+    "zh_CN": "韩语·罗马字",
+    "zh_TW": "韓語·羅馬字",
+    "jp": "韓国語ローマ字",
+    "kr": "한국어 로마",
+    "default": "한국어 로마"
+  },
+  "version" : "2.1",
+  "author": "ziloeng",
+  "files" : [
+    "korean_rome2.schema.yaml",
+    "korean_rome2.dict.yaml"
+  ]
+}
