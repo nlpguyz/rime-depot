@@ -1,11 +1,11 @@
 {
   "id": "jap_poly",
   "name": {
-    "en": "Japanese Kana",
-    "zh_CN": "日语·假名",
-    "zh_TW": "日語·假名",
-    "jp": "日本語·仮名",
-    "default": "日本語·仮名"
+    "en": "Japanese Romaji",
+    "zh_CN": "日语·罗马字",
+    "zh_TW": "日語·羅馬字",
+    "jp": "日本語ローマ字",
+    "default": "日本語ローマ字"
   },
   "version" : "2013.10.08",
   "author": "polyhedron <polyhedron@gmail.com>",
