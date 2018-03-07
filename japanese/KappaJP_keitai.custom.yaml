@@ -1,0 +1,14 @@
+# KappaJP_keitai.custom.yaml
+
+patch: 
+  "key_binder/bindings":
+    #- { accept: Return, send: Escape, when: composing }
+    - { when: has_menu, accept: semicolon, send: 3 }
+    - { when: has_menu, accept: apostrophe, send: 2 }
+    #自動上屏模式須開启
+    - { accept: "Shift+space", toggle: full_shape, when: always }
+    - { accept: minus, send: Page_Up, when: has_menu }
+    - { accept: equal, send: Page_Down, when: has_menu }
+    - { accept: ISO_Left_Tab, send: Page_Up, when: composing }
+    - { accept: "Shift+Tab", send: Page_Up, when: composing }
+    - { accept: Tab, send: Page_Down, when: composing }
