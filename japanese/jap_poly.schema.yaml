@@ -4,7 +4,7 @@
 
 schema:
   schema_id: jap_poly
-  name: 日本語·仮名
+  name: 日本語ローマ字
   version: "2013.10.08"
   author:
     - polyhedron <polyhedron@gmail.com>
