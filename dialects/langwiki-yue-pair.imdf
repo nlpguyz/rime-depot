@@ -1,0 +1,14 @@
+{
+  "id": "langwiki-yue-pair",
+  "name": {
+    "en": "Cantonese Latin (Bilingual)",
+    "zh_CN": "粤语拉丁字（汉拉对照）",
+    "zh_TW": "粵語拉丁字（漢拉對照）",
+    "default": "Cantonese Latin (Bilingual)"
+  },
+  "version" : "0.3",
+  "files" : [
+    "langwiki-yue-pair.dict.yaml",
+    "langwiki-yue-pair.schema.yaml"
+  ]
+}
