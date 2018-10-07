@@ -1,0 +1,69 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: manchu_direct
+  name: 满文快打
+  version: "1.0"
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["满文", "西文"]
+  - name: full_shape
+    reset: 0
+    states: ["半角", "全角"]
+  - name: ascii_punct
+    reset: 0
+    states: ["᠈᠉", ",."]
+engine:
+  processors:
+    - punctuator
+    - express_editor
+  segmentors:
+    - punct_segmentor
+  translators:
+    - punct_translator
+
+punctuator:
+  half_shape: &symtable
+    "a" : ᠠ
+    "b" : ᠪ
+    "c" : ᠴ
+    "d" : ᡩ
+    "e" : ᡝ
+    "f" : ᡶ
+    "g" : ᡤ
+    "h" : ᡥ
+    "i" : ‍ᡳ
+    "j" : ᠵ
+    "k" : ᡴ
+    "l" : ᠯ
+    "m" : ᠮ
+    "n" : ᠨ
+    "o" : ᠣ
+    "p" : ᡦ
+    "r" : ᡵ
+    "s" : ᠰ
+    "t" : ᡨ
+    "u" : ᡠ
+    "v" : ᡡ
+    "w" : ᠸ
+    "x" : ᡧ
+    "y": ᠶ
+    "Y": ᡟ
+    "Q": ᡱ
+    "R" : ᡰ
+    "I": ᡳ
+    "G": ᡬ
+    "H": ᡭ
+    "K": ᠺ
+    "Z": ᡯ
+    "C": ᡮ
+    ";": ᠩ
+    "J": ᡷ
+    ",": ᠈
+    ".": ᠉
+    "X": š
+    "V": ū
+    "S": ž
+  full_shape: *symtable

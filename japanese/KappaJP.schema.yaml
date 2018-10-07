@@ -1,0 +1,81 @@
+customization: 2858901042
+engine:
+  filters:
+    - uniquifier
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - abc_segmentor
+    - matcher
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+key_binder:
+  bindings:
+    - {accept: Return, send: Escape, when: composing}
+    - {accept: "Control+Control_R", send: 2, when: has_menu}
+    - {accept: semicolon, send: 3, when: has_menu}
+    - {accept: "Shift+space", toggle: full_shape, when: always}
+    - {accept: minus, send: Page_Up, when: has_menu}
+    - {accept: equal, send: Page_Down, when: has_menu}
+    - {accept: ISO_Left_Tab, send: Page_Up, when: composing}
+    - {accept: "Shift+Tab", send: Page_Up, when: composing}
+    - {accept: Tab, send: Page_Down, when: composing}
+  import_preset: default
+punctuator:
+  full_shape:
+    ",": ["、", "，"]
+  half_shape:
+    ",": ["、", "，"]
+  import_preset: default
+recognizer:
+  import_preset: default
+schema:
+  author:
+    - "發明人　王永民"
+    - "零尾河童 <sanbikappa@qq.com>"
+    - "Rime schema by 紅葉猫 <momijineko@foxmail.com>"
+  description: |
+    河童日本語五筆入力方案
+    碼表源自 零尾河童
+    敲 z 鍵鍵入符號
+    四碼自動上屏
+    以右Ctrl和分號選二三重、空格上屏
+    
+  name: "河童五筆"
+  schema_id: KappaJP
+  version: 2018.2.26.v1.5.custom.2858901042
+speller:
+  auto_select: true
+  auto_select_unique_candidate: true
+  max_code_length: 4
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["かな", "英数"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: ascii_punct
+    states: ["，。", "，．"]
+translator:
+  dictionary: KappaJP
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
+  enable_charset_filter: true
+  enable_completion: true
+  enable_encoder: true
+  enable_sentence: false
+  enable_user_dict: false
+  encode_commit_history: false
+  max_phrase_length: 4

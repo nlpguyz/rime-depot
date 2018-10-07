@@ -1,0 +1,16 @@
+{
+  "id": "KappaJP_keitai",
+  "name": {
+    "en": "KappaJP",
+    "zh_CN": "日语·河童五笔",
+    "zh_TW": "日語·河童五筆",
+    "jp": "日本語·河童五筆",
+    "default": "日本語·河童五筆"
+  },
+  "version" : "2018.2.25",
+  "author": "Momijineko <momijineko@foxmail.com>",
+  "files" : [
+    "KappaJP_keitai.schema.yaml",
+    "KappaJP.dict.yaml"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "roma_kr",
+  "name": {
+    "en": "Korean Roma Large",
+    "zh_CN": "韩语·罗马字（大）",
+    "zh_TW": "韓語·羅馬字（大）",
+    "jp": "韓国語ローマ字（大）",
+    "kr": "한국어 로마（큰）",
+    "default": "한국어 로마（큰）"
+  },
+  "version" : "0.1",
+  "author": "sgqy <https://github.com/sgqy>",
+  "files" : [
+    "roma_kr.schema.yaml",
+    "roma_kr.dict.yaml"
+  ]
+}

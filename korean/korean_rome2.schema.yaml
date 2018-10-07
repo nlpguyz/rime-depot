@@ -1,0 +1,273 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  name: "한국어 로마 2"
+  schema_id: korean_rome2
+  version: 2.1
+  author:
+    - ziloeng
+  dependencies:
+#    - jyutping2
+    - yvtping
+#    - luna_pinyin
+  description: |
+    基於《國語大詞典》
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["韓文", "西文"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: simplification
+    reset: 0
+    states: ["正體", "简体"]
+  - name: ascii_punct
+    reset: 0
+    states: [ 。，, ．， ]
+
+engine:                    # 輸入引擎設定，即掛接組件的「處方」
+  processors:              # 一、這批組件處理各類按鍵消息
+    - ascii_composer       # ※ 處理西文模式及中西文切換
+    - recognizer           # ※ 與 matcher 搭配，處理符合特定規則的輸入碼，如網址、反查等
+    - key_binder           # ※ 在特定條件下將按鍵綁定到其他按鍵，如重定義逗號、句號爲候選翻頁鍵
+    - speller              # ※ 拼寫處理器，接受字符按鍵，編輯輸入碼
+    - punctuator           # ※ 句讀處理器，將單個字符按鍵直接映射爲文字符號
+    - selector             # ※ 選字處理器，處理數字選字鍵、上、下候選定位、換頁鍵
+    - navigator            # ※ 處理輸入欄內的光標移動鍵
+    - express_editor       # ※ 編輯器，處理空格、回車上屏、回退鍵等
+#    - fluid_editor         # ※ 句式編輯器，用於以空格斷詞、回車上屏的【注音】、【語句流】等輸入方案，替換 express_editor
+  segmentors:              # 二、這批組件識別不同內容類型，將輸入碼分段
+    - ascii_segmentor      # ※ 標識西文段落
+    - matcher              # ※ 標識符合特定規則的段落，如網址、反查等
+    - abc_segmentor        # ※ 標識常規的文字段落
+    - affix_segmentor@yvtping_lookup
+    - affix_segmentor@reverse_lookup
+    - punct_segmentor      # ※ 標識句讀段落
+    - fallback_segmentor   # ※ 標識其他未標識段落
+  translators:             # 三、這批組件翻譯特定類型的編碼段爲一組候選文字
+    - punct_translator     # ※ 轉換標點符號
+    - script_translator    # ※ 腳本翻譯器，用於拼音等基於音節表的輸入方案
+#    - table_translator     # ※ 碼表翻譯器，用於倉頡、五筆等基於碼表的輸入方案，替換 script_translator
+#    - r10n_translator      #同script_translator
+#    - reverse_lookup_translator  # ※ 反查翻譯器，用另一種編碼方案查碼
+    - script_translator@yvtping_lookup
+#    - echo_translator      # ※ 沒有其他候選字時，回顯輸入碼
+#    - chord_composer       # ※ 和絃作曲家或曰並擊處理器，用於【宮保拼音】等多鍵並擊的輸入方案
+  filters:                 # 四、這批組件過濾翻譯的結果
+    - simplifier           # ※ 繁簡轉換
+    - uniquifier           # ※ 過濾重複的候選字，有可能來自繁簡轉換
+    - reverse_lookup_filter@yvtping_reverse_lookup
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  delimiter: " '"
+  algebra:
+#    - "abbrev/^(.*)$/$1/"
+
+    - "xform/^.*\\((.*)\\)$/$1/"  #keep (...) not include ()
+    - "xform/^.*\\[(.*)\\]$/$1/"  #keep [...] not include []
+    
+    - "xform/^([^v].*)ㄵ$/$1n/"
+    - "xform/^([^v].*)ㄶ$/$1n/"
+    - "xform/^([^v].*)ㄻ$/$1m/"
+    - "xform/^([^v].*)ㄹ$/$1l/"
+    - "xform/^([^v].*)ㄽ$/$1l/"
+    - "xform/^([^v].*)ㄾ$/$1l/"
+    - "xform/^([^v].*)ㅀ$/$1l/"
+    - "xform/^([^v].*)ㅇ$/$1ng/"
+    - "xform/^([^v].*)ㅂ$/$1p/"
+    - "xform/^([^v].*)ㅍ$/$1p/"
+    - "xform/^([^v].*)ㅄ$/$1p/"
+    - "xform/^([^v].*)ㄼ$/$1p/"
+    - "xform/^([^v].*)ㄿ$/$1p/"
+    - "xform/^([^v].*)ㄷ$/$1t/"
+    - "xform/^([^v].*)ㅅ$/$1t/"
+    - "xform/^([^v].*)ㅈ$/$1t/"
+    - "xform/^([^v].*)ㅊ$/$1t/"
+    - "xform/^([^v].*)ㅌ$/$1t/"
+    - "xform/^([^v].*)ㅎ$/$1t/"
+    - "xform/^([^v].*)ㅆ$/$1t/"
+    - "xform/^([^v].*)ㄱ$/$1k/"
+    - "xform/^([^v].*)ㅋ$/$1k/"
+    - "xform/^([^v].*)ㄲ$/$1k/"
+    - "xform/^([^v].*)ㄳ$/$1k/"
+    - "xform/^([^v].*)ㄺ$/$1k/"
+    - "xform/ㄳ/ㄱㅅ/"
+    - "xform/ㄵ/ㄴㅈ/"
+    - "xform/ㅄ/ㅂㅅ/"
+    - "xform/ㄽ/ㄹㅅ/"
+    - "xform/ㄼ/ㄹㅂ/"
+    - "xform/ㄾ/ㄹㅌ/"
+    - "xform/ㄻ/ㄹㅁ/"
+    - "xform/ㄺ/ㄹㄱ/"
+    - "xform/ㄶ/ㄴㅎ/"
+    - "xform/ㅀ/ㄹㅎ/"
+    - "xform/ㄿ/ㄹㅍ/"
+
+    - "derive/ㅑ/A/"
+    - "derive/ㅕ/EO/"
+    - "derive/ㅛ/O/"
+    - "derive/ㅠ/U/"
+    - "derive/ㅒ/AE/"
+    - "derive/ㅖ/E/"
+
+    - "xform/ㅏ/a/"
+    - "xform/ㅑ/ya/"
+    - "xform/ㅓ/eo/"
+    - "xform/ㅕ/yeo/"
+    - "xform/ㅗ/o/"
+    - "xform/ㅛ/yo/"
+    - "derive/ㅜ/wu/"
+    - "xform/ㅜ/u/"
+    - "xform/ㅠ/yu/"
+    - "xform/ㅡ/eu/"
+    - "derive/ㅣ/yi/"
+    - "xform/ㅣ/i/"
+    - "xform/ㅐ/ae/"
+    - "xform/ㅒ/yae/"
+    - "xform/ㅔ/e/"
+    - "xform/ㅖ/ye/"
+    - "xform/ㅘ/wa/"
+    - "xform/ㅙ/wae/"
+    - "xform/ㅚ/oe/"
+    - "xform/ㅝ/wo/"
+    - "xform/ㅞ/we/"
+    - "xform/ㅟ/wi/"
+    - "xform/ㅢ/eui/"
+    
+    - "xform/^ㅇ(.*)$/$1/"
+    - "xform/ㅇ/ng/"
+    - "derive/ㅂ/b/"
+    - "xform/ㅂ/p/"
+    
+    - "derive/ㅃ/B/"
+    - "xform/ㅃ/bb/"
+    - "derive/ㄷ/d/"
+    - "xform/ㄷ/t/"
+    
+    - "derive/ㄸ/D/"
+    - "xform/ㄸ/dd/"
+    - "derive/ㄱ/g/"
+    - "xform/ㄱ/k/"
+    
+    - "derive/ㄲ/G/"
+    - "xform/ㄲ/gg/"
+    - "derive/ㄹ/l/"
+    - "xform/ㄹ/r/"
+    
+    - "xform/ㅎ/h/"
+    - "xform/ㅅ/s/"
+    
+    - "derive/ㅆ/S/"
+    - "xform/ㅆ/ss/"
+    - "derive/ㅈ/j/"
+    - "derive/ㅈ/c/"
+    - "xform/ㅈ/z/"
+    
+    - "derive/ㅉ/J/"
+    - "derive/ㅉ/Z/"
+    - "derive/ㅉ/jj/"
+    - "xform/ㅉ/zz/"
+    
+    - "derive/ㅊ/ch/"
+    - "xform/ㅊ/q/"
+    
+    - "xform/ㅁ/m/"
+    - "xform/ㄴ/n/"
+    - "xform/ㅍ/p/"
+    - "xform/ㅌ/t/"
+    - "xform/ㅋ/k/"
+    
+    - "derive/^r([iy])/$1/"  #r後爲iy，r脫落
+    - "derive/^n([iy])/$1/"  #n後爲iy，n脫落
+    - "derive/^r([^iy])/n$1/"  #r後不是iy，變n
+    
+#    - "xform/^\\[(.*)\\]$/$1/"   #去除[]
+#    - "xform/^\\((.*)\\)$/$1/"   #去除()
+    - "abbrev/^([a-z]).+$/$1/"   #首字母简拼
+
+#style:
+#  font_face: Batang
+#  font_point: 14
+#  horizontal: true
+#  layout:
+#    border_width: 3
+#    candidate_spacing: 5
+#    hilite_padding: 2
+#    hilite_spacing: 2
+#    margin_x: 9
+#    margin_y: 6
+#    min_height: 0
+#    min_width: 160
+#    round_corner: 4
+#    spacing: 6
+
+translator:
+#  dictionary: korean_rome2
+  dictionary: &dict
+    korean_rome2
+  spelling_hints: 8
+#  enable_sentence: true
+  comment_format:
+    - "xform/\\(.*?\\)//"    #非貪婪模式去除漢字分體拼音
+    - "xform/\\{.*?\\}//"    #非貪婪模式保留諺文分體拼音
+#    - "xform/\\] \\[/][/"    #去除空格
+    - "xform/v//"    #去除v
+    - "xform/ //"    #去除空格
+
+
+#reverse_lookup:
+#  dictionary: jyutping2
+#  prefix: "`"
+#  suffix: "'"
+#  tips: "〔粵拼〕"
+
+reverse_lookup:
+  tag: reverse_lookup
+  prefix: "`"    # 反查引導鍵「`」
+  suffix: ;
+  tips: 【反查】
+  closing_tips: 【結束】
+  extra_tags:
+    - yvtping_lookup
+
+yvtping_lookup:
+  tag: yvtping_lookup
+  prefix: "`P"    # 獨用粤拼反查在反查鍵「`」之後再鍵入〔大寫〕「P」
+  suffix: ;
+  dictionary: jyutping2
+  prism: yvtping
+  preedit_format:
+#    - xform/([nl])v/$1ü/
+#    - xform/([nl])ue/$1üe/
+#    - xform/([jqxy])v/$1u/
+  tips: 【粤拼反查】
+  closing_tips: 【粤拼結束】
+  initial_quality: 1	# 調整該編譯器出字優先度
+
+yvtping_reverse_lookup:
+  tags: [ yvtping_lookup ]
+  dictionary: *dict
+  overwrite_comment: true  # 覆蓋其他提示
+  comment_format:
+    - xform/^(.*)$/[$1]/
+
+
+punctuator:
+  import_preset: symbols
+  half_shape:
+    .: {commit: .}
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*;?$"
+    yvtping_lookup: "`P[a-z]*;?$"  # 粤拼反查引導鍵
+    punct: "^/([0-9]0?|[a-z]+)$"  # 以「/」引導特殊符號
+
+

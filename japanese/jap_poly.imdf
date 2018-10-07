@@ -1,0 +1,16 @@
+{
+  "id": "jap_poly",
+  "name": {
+    "en": "Japanese Romaji",
+    "zh_CN": "日语·罗马字",
+    "zh_TW": "日語·羅馬字",
+    "jp": "日本語ローマ字",
+    "default": "日本語ローマ字"
+  },
+  "version" : "2013.10.08",
+  "author": "polyhedron <polyhedron@gmail.com>",
+  "files" : [
+    "jap_poly.schema.yaml",
+    "jap_poly.dict.yaml"
+  ]
+}
