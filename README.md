@@ -9,9 +9,7 @@ Collection of installable RIME input schemata
 - dict（中州韵字典，如 pinyin_simp.dict.yaml）
 - imdf（新输入法描述文件，如 pinyin_simp.imdf）
 
-网络安装输入方案需要知道一个输入方案所需要的所有文件，通常为两个文件xxxx.schema和xxxx.dict，但也可能包
-括其他的依赖文件，如多个字典文件，以及依赖的输入方案等。因此在贡献输入方案时，请同时提交imdf文件。除了指定
-所安装的文件外，imdf文件还包含多语言界面所需要的提示信息和版本等。具体格式请见一下例子。
+网络安装输入方案需要知道一个输入方案所需要的所有文件，通常为两个文件xxxx.schema和xxxx.dict，但也可能包括其他的依赖文件，如多个字典文件，以及依赖的输入方案等。因此在贡献输入方案时，请同时提交imdf文件。除了指定所安装的文件外，imdf文件还包含多语言界面所需要的提示信息和版本等。具体格式请见下例。
 
 IMDF格式如下（以 pinyin_simp 为例）
 <pre>
