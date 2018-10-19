@@ -1,0 +1,14 @@
+{
+  "id": "wugniu",
+  "name": {
+    "en": "Shanghainese Pinyin (Wugniu)",
+    "zh_CN": "上海新派",
+    "zh_TW": "上海新派",
+    "default": "Shanghainese Pinyin (Wugniu)"
+  },
+  "version" : "0.15",
+  "files" : [
+    "wugniu.schema.yaml",
+    "wugniu_lopha.dict.yaml"
+  ]
+}
