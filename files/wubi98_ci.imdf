@@ -1,12 +1,12 @@
 {
   "id": "wubi98_ci",
   "name": {
-    "en": "Wubi-98",
-    "zh_CN": "五笔98",
-    "zh_TW": "五筆98",
-    "default": "Wubi-98"
+    "en": "Wubi98 (phrases)",
+    "zh_CN": "98五笔·含词",
+    "zh_TW": "98五筆·含词",
+    "default": "Wubi98 (phrases)"
   },
-  "version" : "0.1",
+  "version" : "1.53",
   "files" : [
     "wubi98_ci.schema.yaml",
     "wubi98_ci.dict.yaml"
