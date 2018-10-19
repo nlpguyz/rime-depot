@@ -1,0 +1,14 @@
+{
+  "id": "wubi98",
+  "name": {
+    "en": "Wubi-98",
+    "zh_CN": "五笔98",
+    "zh_TW": "五筆98",
+    "default": "Wubi-98"
+  },
+  "version" : "0.1",
+  "files" : [
+    "wubi98_ci.schema.yaml",
+    "wubi98_ci.dict.yaml"
+  ]
+}
