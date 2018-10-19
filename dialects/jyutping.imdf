@@ -1,0 +1,14 @@
+{
+  "id": "jyutping",
+  "name": {
+    "en": "Cantonese Pinyin (Jyutping)",
+    "zh_CN": "粵拼",
+    "zh_TW": "粵拼",
+    "default": "Cantonese Pinyin (Jyutping)"
+  },
+  "version" : "0.13",
+  "files" : [
+    "jyutping.schema.yaml",
+    "jyutping.dict.yaml"
+  ]
+}
