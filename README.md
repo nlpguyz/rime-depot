@@ -1,5 +1,6 @@
 # rime-depot
 Collection of installable RIME input schemata
+用于安卓黑客键盘的中州韵输入方案汇集（欢迎提交）
 
 # Help
 请在此目录中上传RIME输入方案相关文件（schema和dict等），并新建一个imdf描述文件，用于输入方案的网络安装。
