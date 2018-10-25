@@ -1,0 +1,14 @@
+{
+  "id": "langwiki-mangul-pair",
+  "name": {
+    "en": "Hangul Pinyin (Bilingual)",
+    "zh_CN": "谚拼音（汉谚对照）",
+    "zh_TW": "諺拼音（漢諺對照）",
+    "default": "Hangul Pinyin (Bilingual)"
+  },
+  "version" : "0.1",
+  "files" : [
+    "langwiki-mangul-pair.dict.yaml",
+    "langwiki-mangul-pair.schema.yaml"
+  ]
+}
