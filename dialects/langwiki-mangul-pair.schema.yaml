@@ -1,0 +1,74 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: langwiki-mangul-pair
+  name: 谚拼音（汉谚对照）
+  version: "0.3"
+  author:
+    - 制作人 谢文山先生
+  description: |
+    语言维基版谚文式汉语拼音输入法（汉谚对照版）
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: extended_charset
+    states: [ 常用, 增廣 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+  filters:
+    - simplifier
+    - uniquifier
+    - single_char_filter
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " ;"
+
+translator:
+  dictionary: langwiki-mangul-pair
+  enable_charset_filter: true
+  enable_sentence: true
+  enable_encoder: true
+  encode_commit_history: true
+  max_phrase_length: 5
+
+simplifier:
+  tips: all  # 簡化字模式下提示對應的傳統漢字
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: '^/([0-9]0?|[A-Za-z]+)$'
