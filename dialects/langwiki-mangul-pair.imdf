@@ -6,7 +6,7 @@
     "zh_TW": "諺拼音（漢諺對照）",
     "default": "Hangul Pinyin (Bilingual)"
   },
-  "version" : "0.1",
+  "version" : "0.2",
   "files" : [
     "langwiki-mangul-pair.dict.yaml",
     "langwiki-mangul-pair.schema.yaml"
