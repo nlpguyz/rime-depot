@@ -4,7 +4,7 @@
 schema:
   schema_id: langwiki-mangul-pair
   name: 谚拼音（汉谚对照）
-  version: "0.3"
+  version: "0.2"
   author:
     - 制作人 谢文山先生
   description: |
