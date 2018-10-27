@@ -6,7 +6,7 @@
     "zh_TW": "粵語拉丁字（漢拉對照）",
     "default": "Cantonese Latin (Bilingual)"
   },
-  "version" : "0.3",
+  "version" : "0.4",
   "files" : [
     "langwiki-yue-pair.dict.yaml",
     "langwiki-yue-pair.schema.yaml"
