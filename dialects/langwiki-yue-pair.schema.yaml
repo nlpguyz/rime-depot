@@ -4,7 +4,7 @@
 schema:
   schema_id: langwiki-yue-pair
   name: 粤语拉丁字（汉拉对照）
-  version: "0.3"
+  version: "0.4"
   author:
     - 制作人 谢文山先生
   description: |
